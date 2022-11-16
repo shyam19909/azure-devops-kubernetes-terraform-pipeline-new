@@ -21,7 +21,7 @@ stages:
     - bash: echo $(Build.SourceBranchName)
     - bash: echo $(Build.SourcesDirectory)
     - bash: echo $(Syetem.DefaultWorkingDirectory)
-    - bash: ls R $(Syetem.DefaultWorkingDirectory)
+    - bash: ls -R $(Syetem.DefaultWorkingDirectory)
     - bash: echo $(Build.ArtifactStagingDirectory)
   # - job: SecondJob
   #   steps:
