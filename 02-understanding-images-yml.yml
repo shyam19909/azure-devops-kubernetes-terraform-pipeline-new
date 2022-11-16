@@ -15,35 +15,42 @@ stages:
   - job: BuildDeployjob
     steps:
     - bash: echo Build FirstJob
-    - bash: echo $(PipelineLevelVariable) 
-  - job: SecondJob
-    steps:
-    - bash: echo Build SecondJob
-- stage: Devdeploy
-  variables:
-    environment: Dev 
-  dependsOn: build
-  jobs:
-  - job: Devdeployjob
-    steps:
-    - bash: echo $(environment)Deployjob
-- stage: QAdeploy
-  variables:
-    environment: QAdeploy
-  dependsOn: build
-  jobs:
-  - job: QADeploy
-    steps:
-    - bash: echo $(environment)Deployjob
-- stage: Proddeploy
-  variables:
-    environment: Proddeploy
-  dependsOn: 
-   - Devdeploy
-   - QAdeploy
-  jobs:
-  - job: ProdDeploy
-    steps:
-    - bash: echo $(environment)Deployjob
+    - bash: echo $(PipelineLevelVariable)
+    - bash: echo $(Build.BuildNumber)
+    - bash: echo $(Build.BuildId)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.SourcesDirectory)
+    - bash: echo $(Syetem.DefaultWorkingDirectory)
+    - bash: ls R $(Syetem.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
+  # - job: SecondJob
+  #   steps:
+  #   - bash: echo Build SecondJob
+# - stage: Devdeploy
+#   variables:
+#     environment: Dev 
+#   dependsOn: build
+#   jobs:
+#   - job: Devdeployjob
+#     steps:
+#     - bash: echo $(environment)Deployjob
+# - stage: QAdeploy
+#   variables:
+#     environment: QAdeploy
+#   dependsOn: build
+#   jobs:
+#   - job: QADeploy
+#     steps:
+#     - bash: echo $(environment)Deployjob
+# - stage: Proddeploy
+#   variables:
+#     environment: Proddeploy
+#   dependsOn: 
+#    - Devdeploy
+#    - QAdeploy
+#   jobs:
+#   - job: ProdDeploy
+#     steps:
+#     - bash: echo $(environment)Deployjob
 
 
