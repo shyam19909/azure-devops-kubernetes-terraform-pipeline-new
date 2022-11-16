@@ -20,8 +20,8 @@ stages:
     - bash: echo $(Build.BuildId)
     - bash: echo $(Build.SourceBranchName)
     - bash: echo $(Build.SourcesDirectory)
-    - bash: echo $(Syetem.DefaultWorkingDirectory)
-    - bash: ls -R $(Syetem.DefaultWorkingDirectory)
+    - bash: echo $(System.DefaultWorkingDirectory)
+    - bash: ls -R $(System.DefaultWorkingDirectory)
     - bash: echo $(Build.ArtifactStagingDirectory)
     - bash: java -version
     - bash: node --version
@@ -31,7 +31,7 @@ stages:
     
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(Syetem.DefaultWorkingDirectory)'
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
         Contents: |
           **/*yaml
           **/*tf
